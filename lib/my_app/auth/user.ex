@@ -22,7 +22,8 @@ defmodule MyApp.Auth.User do
 
   defp put_password_hash(
          %Ecto.Changeset{
-           valid?: true, changes: %{password: password}
+           valid?: true,
+           changes: %{password: password}
          } = changeset
        ) do
     change(changeset, password_hash: Bcrypt.hash_pwd_salt(password))
